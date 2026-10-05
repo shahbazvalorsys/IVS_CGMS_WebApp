@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% load i18n %}
+{% block title %}{% trans "Access limited" %}{% endblock %}
+{% block content %}
+<div class="alert alert-warning">
+  <h1 class="h5">{% trans "Access is limited for this company" %}</h1>
+  {% if state == "Grace" %}{% trans "The subscription has ended and the company is in a grace period. You can view data but not change it. Please renew." %}
+  {% else %}{% trans "This company’s subscription is not active. Please contact your administrator or IVS." %}{% endif %}
+</div>
+{% endblock %}

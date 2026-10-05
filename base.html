@@ -1,0 +1,42 @@
+{% load i18n static perms %}<!doctype html>
+<html lang="{{ ui_lang }}" dir="{% if is_rtl %}rtl{% else %}ltr{% endif %}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}CGMS{% endblock %} – CGMS</title>
+  <link rel="stylesheet" href="{% static is_rtl|yesno:'vendor/bootstrap.rtl.min.css,vendor/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">CGMS <small>International Valor Systems</small></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="nav">
+      {% if user.is_authenticated %}
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">{% trans "Dashboard" %}</a></li>
+        {% can "audit" "view" as can_audit %}
+        {% if can_audit %}<li class="nav-item"><a class="nav-link" href="{% url 'audit_list' %}">{% trans "Audit log" %}</a></li>{% endif %}
+        {% if user.is_platform_admin %}<li class="nav-item"><a class="nav-link" href="/platform-admin/">{% trans "Platform admin" %}</a></li>{% endif %}
+      </ul>
+      {% endif %}
+      <form class="d-flex gap-2 align-items-center" method="post" action="{% url 'set_language' %}">
+        {% csrf_token %}<input type="hidden" name="next" value="{{ request.path }}">
+        <button class="btn btn-sm btn-outline-light" name="language" value="{% if is_rtl %}en{% else %}ar{% endif %}">{% if is_rtl %}English{% else %}العربية{% endif %}</button>
+      </form>
+      {% if user.is_authenticated %}
+      <span class="navbar-text mx-3 small">{% display_name user ui_lang %}</span>
+      <a class="btn btn-sm btn-outline-light me-2" href="{% url 'password_change' %}">{% trans "Password" %}</a>
+      <form method="post" action="{% url 'logout' %}" class="d-inline">{% csrf_token %}<button class="btn btn-sm btn-light">{% trans "Sign out" %}</button></form>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+<main class="container py-4">
+  {% for m in messages %}<div class="alert alert-{{ m.tags|default:'info' }}">{{ m }}</div>{% endfor %}
+  {% block content %}{% endblock %}
+</main>
+<script src="{% static 'vendor/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

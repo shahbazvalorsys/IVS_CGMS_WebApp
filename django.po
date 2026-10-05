@@ -1,0 +1,161 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CGMS 1.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+msgid "Dashboard"
+msgstr "لوحة المعلومات"
+
+msgid "Audit log"
+msgstr "سجل التدقيق"
+
+msgid "Platform admin"
+msgstr "إدارة المنصة"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Sign out"
+msgstr "تسجيل الخروج"
+
+msgid "Sign in"
+msgstr "تسجيل الدخول"
+
+msgid "Incorrect email or password, or the account is temporarily locked."
+msgstr "البريد الإلكتروني أو كلمة المرور غير صحيحة، أو أن الحساب مقفل مؤقتًا."
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Change password"
+msgstr "تغيير كلمة المرور"
+
+msgid "Use at least 10 characters. Avoid common passwords."
+msgstr "استخدم 10 أحرف على الأقل وتجنب كلمات المرور الشائعة."
+
+msgid "Save password"
+msgstr "حفظ كلمة المرور"
+
+msgid ""
+"Welcome to CGMS. Contracts, guarantees, cheques and alerts will appear here "
+"as each module is released."
+msgstr ""
+"مرحبًا بك في نظام CGMS. ستظهر هنا العقود والضمانات والشيكات والتنبيهات مع "
+"إطلاق كل وحدة."
+
+msgid "Your role"
+msgstr "دورك"
+
+msgid "Org Admin"
+msgstr "مدير النظام"
+
+msgid "Company status"
+msgstr "حالة الشركة"
+
+msgid "Release"
+msgstr "الإصدار"
+
+msgid "Platform"
+msgstr "المنصة"
+
+msgid "Client companies"
+msgstr "الشركات العملاء"
+
+msgid "Company"
+msgstr "الشركة"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Created"
+msgstr "تاريخ الإنشاء"
+
+msgid "No clients yet."
+msgstr "لا توجد شركات بعد."
+
+msgid ""
+"Platform staff manage clients and subscriptions here. Client contract data "
+"is not visible to platform staff."
+msgstr ""
+"يدير موظفو المنصة الشركات والاشتراكات هنا. بيانات عقود العملاء غير مرئية "
+"لموظفي المنصة."
+
+msgid "Access limited"
+msgstr "الوصول محدود"
+
+msgid "Access is limited for this company"
+msgstr "الوصول إلى هذه الشركة محدود"
+
+msgid ""
+"The subscription has ended and the company is in a grace period. You can "
+"view data but not change it. Please renew."
+msgstr ""
+"انتهى الاشتراك والشركة في فترة سماح. يمكنك عرض البيانات ولكن لا يمكنك "
+"تعديلها. يرجى التجديد."
+
+msgid ""
+"This company’s subscription is not active. Please contact your administrator"
+" or IVS."
+msgstr "اشتراك هذه الشركة غير فعّال. يرجى التواصل مع مسؤول النظام أو IVS."
+
+msgid "All actions"
+msgstr "جميع الإجراءات"
+
+msgid "Search record"
+msgstr "بحث في السجلات"
+
+msgid "Filter"
+msgstr "تصفية"
+
+msgid "When"
+msgstr "متى"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "Action"
+msgstr "الإجراء"
+
+msgid "Record"
+msgstr "السجل"
+
+msgid "Changes"
+msgstr "التغييرات"
+
+msgid "No entries."
+msgstr "لا توجد قيود."
+
+msgid "Previous"
+msgstr "السابق"
+
+msgid "Next"
+msgstr "التالي"
+
+msgid "Trial"
+msgstr "تجريبي"
+
+msgid "Active"
+msgstr "فعّال"
+
+msgid "Grace"
+msgstr "فترة سماح"
+
+msgid "Expired"
+msgstr "منتهي"
+
+msgid "Suspended"
+msgstr "معلّق"
+
+msgid "Closed"
+msgstr "مغلق"
+
+msgid "Full"
+msgstr "كامل"
+
+msgid "Viewer"
+msgstr "مشاهد"

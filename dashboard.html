@@ -1,0 +1,20 @@
+{% extends "base.html" %}{% load i18n perms %}
+{% block title %}{% trans "Dashboard" %}{% endblock %}
+{% block content %}
+<h1 class="h3 mb-1">{% if ui_lang == "ar" and org.name_ar %}{{ org.name_ar }}{% else %}{{ org.display_name }}{% endif %}</h1>
+<p class="text-muted">{% trans "Welcome to CGMS. Contracts, guarantees, cheques and alerts will appear here as each module is released." %}</p>
+<div class="row g-3">
+  <div class="col-md-4"><div class="card"><div class="card-body">
+    <div class="text-muted small">{% trans "Your role" %}</div>
+    <div class="h5">{% if user.is_org_admin %}{% trans "Org Admin" %}{% elif user.role %}{% if ui_lang == "ar" and user.role.name_ar %}{{ user.role.name_ar }}{% else %}{{ user.role.name_en }}{% endif %}{% else %}–{% endif %}</div>
+  </div></div></div>
+  <div class="col-md-4"><div class="card"><div class="card-body">
+    <div class="text-muted small">{% trans "Company status" %}</div>
+    <div class="h5">{{ org.get_status_display }}</div>
+  </div></div></div>
+  <div class="col-md-4"><div class="card"><div class="card-body">
+    <div class="text-muted small">{% trans "Release" %}</div>
+    <div class="h5">Phase 1 – Sprint 1</div>
+  </div></div></div>
+</div>
+{% endblock %}

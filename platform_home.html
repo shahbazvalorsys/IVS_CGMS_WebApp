@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% load i18n %}
+{% block title %}{% trans "Platform" %}{% endblock %}
+{% block content %}
+<h1 class="h3 mb-3">{% trans "Client companies" %}</h1>
+<div class="card"><div class="card-body p-0"><table class="table table-sm mb-0">
+  <thead><tr><th>{% trans "Company" %}</th><th>{% trans "Status" %}</th><th>{% trans "Created" %}</th></tr></thead>
+  <tbody>{% for o in orgs %}<tr><td>{{ o.display_name }}</td><td>{{ o.get_status_display }}</td><td>{{ o.created_at|date:"Y-m-d" }}</td></tr>
+  {% empty %}<tr><td colspan="3" class="text-muted p-3">{% trans "No clients yet." %}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+<p class="text-muted small mt-3">{% trans "Platform staff manage clients and subscriptions here. Client contract data is not visible to platform staff." %}</p>
+{% endblock %}

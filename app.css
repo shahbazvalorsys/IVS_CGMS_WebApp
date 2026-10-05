@@ -1,0 +1,6 @@
+body { font-family: "Segoe UI", Tahoma, Arial, sans-serif; background: #f5f7fa; }
+.navbar-brand small { font-weight: 400; opacity: .8; }
+.card { border: 0; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.login-box { max-width: 420px; margin: 8vh auto; }
+.table-sm td, .table-sm th { vertical-align: middle; }
+.badge-status { font-weight: 500; }

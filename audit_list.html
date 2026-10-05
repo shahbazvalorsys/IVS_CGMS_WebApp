@@ -1,0 +1,26 @@
+{% extends "base.html" %}{% load i18n %}
+{% block title %}{% trans "Audit log" %}{% endblock %}
+{% block content %}
+<h1 class="h3 mb-3">{% trans "Audit log" %}</h1>
+<form class="row g-2 mb-3" method="get">
+  <div class="col-md-3"><select class="form-select" name="action"><option value="">{% trans "All actions" %}</option>
+    {% for a in actions %}<option value="{{ a }}" {% if a == action %}selected{% endif %}>{{ a }}</option>{% endfor %}</select></div>
+  <div class="col-md-4"><input class="form-control" name="q" value="{{ q }}" placeholder="{% trans 'Search record' %}"></div>
+  <div class="col-md-2"><button class="btn btn-primary w-100">{% trans "Filter" %}</button></div>
+</form>
+<div class="card"><div class="table-responsive"><table class="table table-sm mb-0">
+  <thead><tr><th>{% trans "When" %}</th><th>{% trans "User" %}</th><th>{% trans "Action" %}</th><th>{% trans "Record" %}</th><th>{% trans "Changes" %}</th><th>IP</th></tr></thead>
+  <tbody>{% for e in page %}<tr>
+    <td class="text-nowrap" dir="ltr">{{ e.occurred_at|date:"Y-m-d H:i" }}</td><td>{{ e.user_email|default:"–" }}</td>
+    <td><span class="badge text-bg-secondary badge-status">{{ e.action }}</span></td>
+    <td>{{ e.entity_type }} #{{ e.entity_id|default_if_none:"" }} {{ e.entity_label }}</td>
+    <td class="small" dir="ltr">{% if e.changes %}{% for k, v in e.changes.items %}<div>{{ k }}: {{ v.0|default_if_none:"" }} → {{ v.1|default_if_none:"" }}</div>{% endfor %}{% endif %}</td>
+    <td dir="ltr">{{ e.ip_address|default_if_none:"" }}</td></tr>
+  {% empty %}<tr><td colspan="6" class="text-muted p-3">{% trans "No entries." %}</td></tr>{% endfor %}</tbody>
+</table></div></div>
+<nav class="mt-3 d-flex gap-2">
+  {% if page.has_previous %}<a class="btn btn-sm btn-outline-secondary" href="?page={{ page.previous_page_number }}&action={{ action }}&q={{ q }}">{% trans "Previous" %}</a>{% endif %}
+  <span class="small text-muted align-self-center">{{ page.number }} / {{ page.paginator.num_pages }}</span>
+  {% if page.has_next %}<a class="btn btn-sm btn-outline-secondary" href="?page={{ page.next_page_number }}&action={{ action }}&q={{ q }}">{% trans "Next" %}</a>{% endif %}
+</nav>
+{% endblock %}
